@@ -51,6 +51,7 @@ Validar que a imagem da URL ${IMAGE_URL} foi inserida
 
 Validar mensagem de erro no campo image title
     Wait Until Element Is Visible    ${MODAL_ERROR_INPUT_TITLE}
+    Element Should Be Visible    ${MODAL_ERROR_INPUT_TITLE}
 
 Validar mensagem de erro no campo image URL
     Wait Until Element Is Visible    ${MODAL_ERROR_INPUT_URL_TITLE}
