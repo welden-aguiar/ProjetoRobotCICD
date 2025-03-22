@@ -35,10 +35,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y firefox
+          FIREFOX_PATH=$(which firefox)
           wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
           tar -xvzf geckodriver-v0.36.0-linux64.tar.gz
           chmod +x geckodriver
           sudo mv geckodriver /usr/local/bin/
+          echo "FIREFOX_BINARY=$FIREFOX_PATH" >> $GITHUB_ENV
 
       - name: Run Robot Framework tests
         env:
