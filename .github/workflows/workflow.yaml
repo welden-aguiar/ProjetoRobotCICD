@@ -41,7 +41,7 @@ jobs:
           chmod +x geckodriver
           sudo cp geckodriver /snap/bin/geckodriver
           sudo mv geckodriver /usr/local/bin/
-          echo "FIREFOX_BINARY=$FIREFOX_PATH" >> $GITHUB_ENV
+#          echo "FIREFOX_BINARY=$FIREFOX_PATH" >> $GITHUB_ENV
 
       - name: Run Robot Framework tests
         env:
