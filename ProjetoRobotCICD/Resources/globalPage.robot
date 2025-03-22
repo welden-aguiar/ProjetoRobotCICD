@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${URL}    https://erickwendel.github.io/vanilla-js-web-app-example/
-${BROWSER}    chrome
+${BROWSER}    firefox
 ${OPTIONS}    options=add_argument("--headless")
 
 *** Keywords ***
