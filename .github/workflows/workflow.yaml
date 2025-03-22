@@ -59,7 +59,3 @@ jobs:
           path: ./results
           name: robot-test-results
           retention-days: 3
-
-
-
-
