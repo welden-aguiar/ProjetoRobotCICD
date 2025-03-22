@@ -48,19 +48,20 @@ jobs:
           WORK_TOKEN: ${{ secrets.GIT_TOKEN }}
           TZ: America/Sao_Paulo
         run: |
-          if ! robot --outputdir results --exclude skip ProjetoRobotCICD/Tests/; then
-            echo "Robot Framework tests failed. Rerunning failed tests..."
-            if [ -f results/output.xml ]; then
-              robot --rerunfailed results/output.xml --outputdir results_rerun ProjetoRobotCICD/Tests/ || true
-              if [ -f results_rerun/output.xml ]; then
-                rebot --output results/output.xml --log results/log.html --report results/report.html --merge results/output.xml results_rerun/output.xml
-              else
-                echo "No output.xml file found from rerun. Skipping merge."
-              fi
-            else
-              echo "No output.xml file found. Cannot rerun failed tests."
-            fi
-          fi
+          robot --variable BROWSER:firefox --variable HEADLESS:True --outputdir results ProjetoRobotCICD/Tests/
+#          if ! robot --outputdir results --exclude skip ProjetoRobotCICD/Tests/; then
+#            echo "Robot Framework tests failed. Rerunning failed tests..."
+#            if [ -f results/output.xml ]; then
+#              robot --rerunfailed results/output.xml --outputdir results_rerun ProjetoRobotCICD/Tests/ || true
+#              if [ -f results_rerun/output.xml ]; then
+#                rebot --output results/output.xml --log results/log.html --report results/report.html --merge results/output.xml results_rerun/output.xml
+#              else
+#                echo "No output.xml file found from rerun. Skipping merge."
+#              fi
+#            else
+#              echo "No output.xml file found. Cannot rerun failed tests."
+#            fi
+#          fi
         
           echo "Script execution completed"
         continue-on-error: true
